@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
-* Студент: [Дмитрий Крылов](https://up.htmlacademy.ru/javascript/24/user/1759883).
-* Наставник: `Неизвестно`.
+- Студент: [Дмитрий Крылов](https://htmlacademy.ru/profile/ruyanxz).
+- Наставник: [Никита Сигов] (https://htmlacademy.ru/profile/crazer).
 
 ---
 

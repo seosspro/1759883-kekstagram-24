@@ -37,8 +37,25 @@ const getCommentsArray = function (randomAmount) {
       avatar: `img/avatar-${getRandom(1, 6)}.svg`,
       message: getRandomArrayElement(COMMENTS_LIST),
       name: getRandomArrayElement(AUTHOR_NAMES),
+      id: 0,
     });
   }
 
   return resultComments;
+};
+
+const getCommentArray = function (objectsAmount) {
+  const resultComment = [];
+
+  for (let i = 1; i <= objectsAmount; i++) {
+    resultComment.push({
+      url: `photos/${i}.jpg`,
+      description: `photo`,
+      likes: getRandom(LIKES.min, LIKES.max),
+      comments: getCommentsArray(getRandom(COMMENTS.min, COMMENTS.max)),
+      id: 0,
+    });
+  }
+
+  return resultComment;
 };

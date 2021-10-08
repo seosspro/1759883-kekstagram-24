@@ -45,10 +45,10 @@ const getCommentsArray = function (randomAmount) {
 };
 
 const getCommentArray = function (objectsAmount) {
-  const resultComment = [];
+  const resultPhoto = [];
 
   for (let i = 1; i <= objectsAmount; i++) {
-    resultComment.push({
+    resultPhoto.push({
       url: `photos/${i}.jpg`,
       description: `photo`,
       likes: getRandom(LIKES.min, LIKES.max),
@@ -57,5 +57,5 @@ const getCommentArray = function (objectsAmount) {
     });
   }
 
-  return resultComment;
+  return resultPhoto;
 };

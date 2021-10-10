@@ -1,10 +1,10 @@
 const AUTHOR_NAMES = [
-  "Дмитрий",
-  "Евгений",
-  "Максим",
-  "Сергей",
-  "Анна",
-  "Валерий",
+  'Дмитрий',
+  'Евгений',
+  'Максим',
+  'Сергей',
+  'Анна',
+  'Валерий',
 ];
 
 const LIKES = {
@@ -17,7 +17,7 @@ const COMMENTS = {
   max: 5,
 };
 
-const COMMENT_LIST = [`Всё отлично!`, `В целом всё неплохо. Но не всё.`];
+const COMMENTS_LIST = ['Всё отлично!', 'В целом всё неплохо. Но не всё.'];
 
 function getRandom(min, max) {
   min = Math.ceil(min);
@@ -32,7 +32,7 @@ function getRandomArrayElement(array) {
 const getCommentsArray = function (randomAmount) {
   const resultComments = [];
 
-  for (let i = 0; i < randomAmount; i++) {
+  for (let iz = 0; iz < randomAmount; iz++) {
     resultComments.push({
       avatar: `img/avatar-${getRandom(1, 6)}.svg`,
       message: getRandomArrayElement(COMMENTS_LIST),
@@ -44,18 +44,19 @@ const getCommentsArray = function (randomAmount) {
   return resultComments;
 };
 
-const getCommentArray = function (objectsAmount) {
+const getPhoto = function (objectsAmount) {
   const resultPhoto = [];
 
-  for (let i = 1; i <= objectsAmount; i++) {
+  for (let ix = 1; ix <= objectsAmount; ix++) {
     resultPhoto.push({
-      url: `photos/${i}.jpg`,
-      description: `photo`,
+      url: `photos/${ix}.jpg`,
+      description: 'photo',
       likes: getRandom(LIKES.min, LIKES.max),
       comments: getCommentsArray(getRandom(COMMENTS.min, COMMENTS.max)),
       id: 0,
     });
   }
-
+  // eslint-disable-next-line no-unused-vars
+  getPhoto();
   return resultPhoto;
 };

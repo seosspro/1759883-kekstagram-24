@@ -37,7 +37,7 @@ const getPhoto = function (objectsAmount) {
       id: 0,
     });
   }
-  // eslint-disable-next-line no-unused-vars
+
   getPhoto();
   return resultPhoto;
 };

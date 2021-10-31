@@ -15,6 +15,7 @@ export const drawPhotos = () => {
     elementClone.querySelector('.picture__comments').textContent =
       data[i].comments.length;
     elementClone.querySelector('.picture__likes').textContent = data[i].likes;
+    elementClone.querySelector('.big-picture').src = data[i].url;
     fragment.appendChild(elementClone);
   }
 

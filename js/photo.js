@@ -9,13 +9,13 @@ export const drawPhotos = () => {
 
   const template = templateFragment.querySelector('a');
 
-  for (let i = 0; i < data.length; i++) {
+  for (let ix = 0; ix < data.length; ix++) {
     const elementClone = template.cloneNode(true);
-    elementClone.querySelector('.picture__info').content = data[i].description;
+    elementClone.querySelector('.picture__info').content = data[ix].description;
     elementClone.querySelector('.picture__comments').textContent =
-      data[i].comments.length;
-    elementClone.querySelector('.picture__likes').textContent = data[i].likes;
-    elementClone.querySelector('.big-picture').src = data[i].url;
+      data[ix].comments.length;
+    elementClone.querySelector('.picture__likes').textContent = data[ix].likes;
+    elementClone.querySelector('.picture__img').src = data[ix].url;
     fragment.appendChild(elementClone);
   }
 

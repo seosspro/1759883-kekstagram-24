@@ -1,22 +1,11 @@
-const AUTHOR_NAMES = [
-  'Дмитрий',
-  'Евгений',
-  'Максим',
-  'Сергей',
-  'Анна',
-  'Валерий',
-];
+function getRandom(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
-const LIKES = {
-  min: 5,
-  max: 10,
-};
+function getRandomArrayElement(array) {
+  return array[getRandom(0, array.length - 1)];
+}
 
-const COMMENTS = {
-  min: 1,
-  max: 5,
-};
-
-const COMMENTS_LIST = ['Всё отлично!', 'В целом всё неплохо. Но не всё.'];
-
-export { AUTHOR_NAMES, LIKES, COMMENTS, COMMENTS_LIST };
+export { getRandom, getRandomArrayElement };

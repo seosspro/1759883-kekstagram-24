@@ -1,13 +1,10 @@
-/* global noUiSlider:readonly */
-
 const SpecialStyle = {
   MARVIN: 'marvin',
   PHOBOS: 'phobos',
   NONE: 'none',
-}
+};
 const SliderSettings = {
-  NONE:
-  {
+  NONE: {
     class: 'effects__preview--mone',
     min: 0,
     max: 0.1,
@@ -15,8 +12,7 @@ const SliderSettings = {
     step: 0,
     effect: 'none',
   },
-  CHROME:
-  {
+  CHROME: {
     class: 'effects__preview--chrome',
     min: 0,
     max: 1,
@@ -24,8 +20,7 @@ const SliderSettings = {
     step: 0.1,
     effect: 'grayscale',
   },
-  SEPIA:
-  {
+  SEPIA: {
     class: 'effects__preview--sepia',
     min: 0,
     max: 1,
@@ -33,8 +28,7 @@ const SliderSettings = {
     step: 0.1,
     effect: 'sepia',
   },
-  MARVIN:
-  {
+  MARVIN: {
     class: 'effects__preview--marvin',
     min: 0,
     max: 100,
@@ -42,8 +36,7 @@ const SliderSettings = {
     step: 1,
     effect: 'invert',
   },
-  PHOBOS:
-  {
+  PHOBOS: {
     class: 'effects__preview--phobos',
     min: 0,
     max: 3,
@@ -51,8 +44,7 @@ const SliderSettings = {
     step: 0.1,
     effect: 'blur',
   },
-  HEAT:
-  {
+  HEAT: {
     class: 'effects__preview--heat',
     min: 1,
     max: 3,
@@ -60,10 +52,12 @@ const SliderSettings = {
     step: 0.1,
     effect: 'brightness',
   },
-}
+};
 
 const formEditingPicture = document.querySelector('.img-upload__form');
-const sliderContainer = formEditingPicture.querySelector('.effect-level__slider');
+const sliderContainer = formEditingPicture.querySelector(
+  '.effect-level__slider'
+);
 const sliderValue = formEditingPicture.querySelector('.effect-level__value');
 const sliderEffect = formEditingPicture.querySelector('.img-upload__preview');
 const effectsList = formEditingPicture.querySelector('.effects__list');
@@ -84,12 +78,11 @@ const setSliderDefaultSettings = () => {
 
   sliderEffect.classList.add(SliderSettings.NONE.class);
   sliderEffect.style.filter = SpecialStyle.NONE;
-}
+};
 
 setSliderDefaultSettings();
 
 const onEffectsListChange = (evt) => {
-
   sliderEffect.classList.remove(sliderEffect.classList[1]);
 
   const slider = document.querySelector('.effect-level');
@@ -99,11 +92,8 @@ const onEffectsListChange = (evt) => {
   sliderEffect.classList.add(sliderSetting.class);
 
   if (evt.target.value === SpecialStyle.NONE) {
-
     slider.style.display = 'none';
-
   } else {
-
     slider.style.display = 'block';
   }
 
@@ -131,22 +121,21 @@ const onEffectsListChange = (evt) => {
     sliderValue.value = values[handle];
     if (evt.target.value === SpecialStyle.NONE) {
       sliderEffect.style.filter = SpecialStyle.NONE;
-
     } else {
       let units = '';
       switch (evt.target.value) {
         case SpecialStyle.MARVIN:
-          units = '%'
+          units = '%';
           break;
         case SpecialStyle.PHOBOS:
-          units = 'px'
+          units = 'px';
           break;
       }
-      sliderEffect.style.filter = `${sliderSetting.effect}(${sliderValue.value}${units})`
+      sliderEffect.style.filter = `${sliderSetting.effect}(${sliderValue.value}${units})`;
     }
   });
-}
+};
 
-effectsList.addEventListener('change', onEffectsListChange)
+effectsList.addEventListener('change', onEffectsListChange);
 
-export {setSliderDefaultSettings};
+export { setSliderDefaultSettings };

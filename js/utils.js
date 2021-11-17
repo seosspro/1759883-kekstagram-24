@@ -20,7 +20,7 @@ const debounce = (cb) => {
       window.clearTimeout(lastTimeout);
     }
 
-    lastTimeout = window.setTimeout(function () {
+    lastTimeout = window.setTimeout(() => {
       cb.apply(null, parameters);
     }, DEBOUNCE_INTERVAL);
   };

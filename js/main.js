@@ -1,3 +1,9 @@
-import { drawPhotos } from './photo.js';
-
-drawPhotos();
+import './utils.js';
+import './fetch.js';
+import './big-picture.js';
+import './form.js';
+import './slider.js';
+import './tag.js';
+import './submit-form.js';
+import './filter-picture.js';
+import './load-image.js';

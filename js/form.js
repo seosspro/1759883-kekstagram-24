@@ -37,7 +37,7 @@ const onCloseEditingPictureClick = () => {
 
 };
 
-const onEscapeCloseEditingPicture = (evt) => {
+function onEscapeCloseEditingPicture(evt) { // для поднятия
   const isEscapeDown = evt.key === Key.ESCAPE || evt.key === Key.ESC;
   const isInputHashtagFocus = document.activeElement === inputHashtags;
   const isTextareaCommentFocus = document.activeElement === commentTextarea;
@@ -46,7 +46,7 @@ const onEscapeCloseEditingPicture = (evt) => {
     evt.preventDefault();
     closeEditingPicture();
   }
-};
+}
 
 const onOpenEditingPicture = () => {
   body.classList.add('modal-open');

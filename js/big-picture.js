@@ -22,8 +22,6 @@ const commentsRenderedCounter = bigPictureContainer.querySelector(
 );
 const descriptionPicture =
   bigPictureContainer.querySelector('.social__caption');
-const commentsContainer =
-  bigPictureContainer.querySelector('.social__comments');
 const body = document.querySelector('body');
 const loadMoreCommentButton = document.querySelector(
   '.social__comments-loader',
@@ -32,15 +30,7 @@ let commentsBigPicture = [];
 let counterComments = 0;
 let endIndexComment = NUMBER_OF_COMMENTS;
 
-const createBigPicture = ({ comments, likes, url, description }) => {
-  bigPictureImg.src = url;
-  likesPicture.textContent = likes;
-  commentsPicture.textContent = comments.length;
-  descriptionPicture.textContent = description;
-  createComment(comments);
-};
-
-const createElement = (avatar, name, message, commentsContainer) => {
+const createElement = (avatar, name, message, container) => {
   const commentItem = document.createElement('li');
   commentItem.classList.add(SocialClassName.COMMENT);
   const picture = document.createElement('img');
@@ -54,8 +44,10 @@ const createElement = (avatar, name, message, commentsContainer) => {
   commentMassage.classList.add(SocialClassName.TEXT);
   commentMassage.textContent = message;
   commentItem.appendChild(commentMassage);
-  commentsContainer.appendChild(commentItem);
+  container.appendChild(commentItem);
 };
+
+const commentsContainer = bigPictureContainer.querySelector('.social__comments');
 
 const createPartComment = (comments, startComment, endComment) => {
   const fragment = document.createDocumentFragment();
@@ -68,28 +60,6 @@ const createPartComment = (comments, startComment, endComment) => {
 
   return fragment;
 };
-
-const onloadMoreCommentButton = (evt) => {
-  evt.preventDefault();
-  endIndexComment = NUMBER_OF_COMMENTS + counterComments;
-  const fragment = createPartComment(
-    commentsBigPicture,
-    counterComments,
-    endIndexComment,
-  );
-
-  commentsContainer.appendChild(fragment);
-  counterComments += NUMBER_OF_COMMENTS;
-
-  if (counterComments >= commentsBigPicture.length) {
-    loadMoreCommentButton.classList.add('hidden');
-    commentsRenderedCounter.textContent = commentsBigPicture.length;
-  } else {
-    commentsRenderedCounter.textContent = counterComments;
-  }
-};
-
-loadMoreCommentButton.addEventListener('click', onloadMoreCommentButton);
 
 const createComment = (comments) => {
   counterComments = 0;
@@ -117,5 +87,35 @@ const createComment = (comments) => {
     commentsRenderedCounter.textContent = counterComments;
   }
 };
+
+const createBigPicture = ({ comments, likes, url, description }) => {
+  bigPictureImg.src = url;
+  likesPicture.textContent = likes;
+  commentsPicture.textContent = comments.length;
+  descriptionPicture.textContent = description;
+  createComment(comments);
+};
+
+const onloadMoreCommentButton = (evt) => {
+  evt.preventDefault();
+  endIndexComment = NUMBER_OF_COMMENTS + counterComments;
+  const fragment = createPartComment(
+    commentsBigPicture,
+    counterComments,
+    endIndexComment,
+  );
+
+  commentsContainer.appendChild(fragment);
+  counterComments += NUMBER_OF_COMMENTS;
+
+  if (counterComments >= commentsBigPicture.length) {
+    loadMoreCommentButton.classList.add('hidden');
+    commentsRenderedCounter.textContent = commentsBigPicture.length;
+  } else {
+    commentsRenderedCounter.textContent = counterComments;
+  }
+};
+
+loadMoreCommentButton.addEventListener('click', onloadMoreCommentButton);
 
 export { body, bigPictureContainer, createComment, createBigPicture };

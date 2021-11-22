@@ -9,6 +9,21 @@ const pictureTemplate = document.querySelector('#picture')
 const bigPictureCancel = document.querySelector('.big-picture__cancel');
 const filterForPicter = document.querySelector('.img-filters');
 
+const onBigPictureCancelClick = () => {
+  body.classList.remove('modal-open');
+  bigPictureContainer.classList.add('hidden');
+};
+
+const onEscapeCloseBigPicture = (evt) => {
+  const isEscapeDown = evt.key === Key.ESCAPE || evt.key === Key.ESC;
+
+  if (isEscapeDown) {
+    evt.preventDefault();
+    onBigPictureCancelClick();
+    document.removeEventListener('keydown', onEscapeCloseBigPicture);
+  }
+};
+
 const getPictureElement = ({ comments, likes, url }) => {
 
   const picture = pictureTemplate.cloneNode(true);
@@ -52,21 +67,6 @@ const addingPictures = (pictures, container) => {
   container.appendChild(fragment);
 
   openFilterForPicter();
-};
-
-const onBigPictureCancelClick = () => {
-  body.classList.remove('modal-open');
-  bigPictureContainer.classList.add('hidden');
-};
-
-const onEscapeCloseBigPicture = (evt) => {
-  const isEscapeDown = evt.key === Key.ESCAPE || evt.key === Key.ESC;
-
-  if (isEscapeDown) {
-    evt.preventDefault();
-    onBigPictureCancelClick();
-    document.removeEventListener('keydown', onEscapeCloseBigPicture);
-  }
 };
 
 export { addingPictures };

@@ -12,7 +12,7 @@ const  defaultFilter = imgFiltersContainer.querySelector('#filter-default');
 
 const addActiveClass = (button) => {
   const buttons = imgFiltersContainer.querySelectorAll('button');
-  buttons.forEach(button => button.classList.remove('img-filters__button--active'));
+  buttons.forEach((button) => button.classList.remove('img-filters__button--active'));
   button.classList.add('img-filters__button--active');
 };
 
@@ -34,34 +34,32 @@ const onDefaultFilterClick = (evt) => {
 };
 
 const sortsPicturesByComment = (pictures) => {
-  const picturesCopy = pictures.slice()
+  const picturesCopy = pictures.slice();
   const links = pictureContainer.querySelectorAll('a');
-  links.forEach(link => link.remove());
-  picturesCopy.sort(function (a, b) {
-    return a.comments.length - b.comments.length;
-  })
+  links.forEach((link) => link.remove());
+  picturesCopy.sort((a, b) => a.comments.length - b.comments.length);
   picturesCopy.reverse();
   addingPictures(picturesCopy, pictureContainer);
 };
 
 const sortsPicturesRandom = (pictures) => {
-  const picturesCopy = pictures.slice()
-  const randomPictures = []
+  const picturesCopy = pictures.slice();
+  const randomPictures = [];
   const links = pictureContainer.querySelectorAll('a');
 
-  links.forEach(link => link.remove());
+  links.forEach((link) => link.remove());
   for (let i = 0; i < MAX_RANDOM_PICTURE; i++) {
     const randomIndex = getRandomInteger(0, (picturesCopy.length - 1));
     const picture = picturesCopy.splice(randomIndex, 1)[0];
-    randomPictures.push(picture)
+    randomPictures.push(picture);
   }
   addingPictures(randomPictures, pictureContainer);
 };
 
 const sortsPicturesByDefault = (pictures) => {
-  const picturesCopy = pictures.slice()
+  const picturesCopy = pictures.slice();
   const links = pictureContainer.querySelectorAll('a');
-  links.forEach(link => link.remove());
+  links.forEach((link) => link.remove());
   addingPictures(picturesCopy, pictureContainer);
 };
 

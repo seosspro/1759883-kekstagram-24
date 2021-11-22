@@ -13,12 +13,12 @@ const Size = {
 
 const bigPictureContainer = document.querySelector('.big-picture');
 const bigPictureImg = bigPictureContainer.querySelector(
-  '.big-picture__img img'
+  '.big-picture__img img',
 );
 const likesPicture = bigPictureContainer.querySelector('.likes-count');
 const commentsPicture = bigPictureContainer.querySelector('.comments-count');
 const commentsRenderedCounter = bigPictureContainer.querySelector(
-  '.comments-rendered-counter'
+  '.comments-rendered-counter',
 );
 const descriptionPicture =
   bigPictureContainer.querySelector('.social__caption');
@@ -26,7 +26,7 @@ const commentsContainer =
   bigPictureContainer.querySelector('.social__comments');
 const body = document.querySelector('body');
 const loadMoreCommentButton = document.querySelector(
-  '.social__comments-loader'
+  '.social__comments-loader',
 );
 let commentsBigPicture = [];
 let counterComments = 0;
@@ -58,7 +58,7 @@ const createElement = (avatar, name, message, commentsContainer) => {
 };
 
 const createPartComment = (comments, startComment, endComment) => {
-  let fragment = document.createDocumentFragment();
+  const fragment = document.createDocumentFragment();
 
   const commentsPart = comments.slice(startComment, endComment);
 
@@ -75,7 +75,7 @@ const onloadMoreCommentButton = (evt) => {
   const fragment = createPartComment(
     commentsBigPicture,
     counterComments,
-    endIndexComment
+    endIndexComment,
   );
 
   commentsContainer.appendChild(fragment);
@@ -103,7 +103,7 @@ const createComment = (comments) => {
   const fragment = createPartComment(
     commentsBigPicture,
     counterComments,
-    endIndexComment
+    endIndexComment,
   );
 
   commentsContainer.appendChild(fragment);

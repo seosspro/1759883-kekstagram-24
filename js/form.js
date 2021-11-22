@@ -1,4 +1,4 @@
-import { setSliderDefaultSettings } from './slider.js'
+import { setSliderDefaultSettings } from './slider.js';
 const STEP = 25;
 const VALUE_MAX = 100;
 const DEFAULT_SCALE = 1;
@@ -6,7 +6,7 @@ const DEFAULT_SCALE = 1;
 const Key = {
   ESCAPE: 'Escape',
   ESC: 'Esc',
-}
+};
 
 const formEditingPicture = document.querySelector('.img-upload__form');
 const loadingPicture = formEditingPicture.querySelector('#upload-file');
@@ -28,14 +28,14 @@ const closeEditingPicture = () => {
   commentTextarea.classList.remove('error-message');
   inputHashtags.classList.remove('error-message');
   setSliderDefaultSettings();
-  pictureSize.style.transform = `scale(${DEFAULT_SCALE})`
+  pictureSize.style.transform = `scale(${DEFAULT_SCALE})`;
   document.removeEventListener('keydown', onEscapeCloseEditingPicture);
-}
+};
 
 const onCloseEditingPictureClick = () => {
   closeEditingPicture();
 
-}
+};
 
 const onEscapeCloseEditingPicture = (evt) => {
   const isEscapeDown = evt.key === Key.ESCAPE || evt.key === Key.ESC;
@@ -46,7 +46,7 @@ const onEscapeCloseEditingPicture = (evt) => {
     evt.preventDefault();
     closeEditingPicture();
   }
-}
+};
 
 const onOpenEditingPicture = () => {
   body.classList.add('modal-open');
@@ -54,9 +54,9 @@ const onOpenEditingPicture = () => {
 
   uploadCancel.addEventListener('click', onCloseEditingPictureClick);
   document.addEventListener('keydown', onEscapeCloseEditingPicture);
-}
+};
 
-loadingPicture.addEventListener('click', evt => {
+loadingPicture.addEventListener('click', (evt) => {
   if (!editingPicture.classList.contains('hidden')) {
     evt.preventDefault();
   }
@@ -68,19 +68,19 @@ loadingPicture.addEventListener('change', onOpenEditingPicture);
 scaleControlSmaller.addEventListener('click', () => {
   const scaleControlValueNumber = +scaleControlValue.value.replace('%', '');
   if (scaleControlValueNumber > STEP) {
-    scaleControlValue.value = (scaleControlValueNumber - STEP) + '%';
-    const scaleNumberSmaller = (scaleControlValueNumber - STEP) / 100
-    pictureSize.style.transform = `scale(${scaleNumberSmaller})`
+    scaleControlValue.value = `${scaleControlValueNumber - STEP  }%`;
+    const scaleNumberSmaller = (scaleControlValueNumber - STEP) / 100;
+    pictureSize.style.transform = `scale(${scaleNumberSmaller})`;
   }
-})
+});
 
 scaleControlBigger.addEventListener('click', () => {
   const scaleControlValueNumber = +scaleControlValue.value.replace('%', '');
   if (scaleControlValueNumber < VALUE_MAX) {
-    scaleControlValue.value = (scaleControlValueNumber + STEP) + '%';
-    const scaleNumberBigger = (scaleControlValueNumber + STEP) / 100
-    pictureSize.style.transform = `scale(${scaleNumberBigger})`
+    scaleControlValue.value = `${scaleControlValueNumber + STEP  }%`;
+    const scaleNumberBigger = (scaleControlValueNumber + STEP) / 100;
+    pictureSize.style.transform = `scale(${scaleNumberBigger})`;
   }
 
-})
+});
 export { closeEditingPicture, Key };

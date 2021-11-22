@@ -56,7 +56,7 @@ const SliderSettings = {
 
 const formEditingPicture = document.querySelector('.img-upload__form');
 const sliderContainer = formEditingPicture.querySelector(
-  '.effect-level__slider'
+  '.effect-level__slider',
 );
 const sliderValue = formEditingPicture.querySelector('.effect-level__value');
 const sliderEffect = formEditingPicture.querySelector('.img-upload__preview');

@@ -13,9 +13,7 @@ uploadFile.addEventListener('change', () => {
   const file = uploadFile.files[0];
   const fileName = file.name.toLowerCase();
 
-  const matches = FILE_TYPES.some((it) => {
-    return fileName.endsWith(it);
-  });
+  const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
 
   if (matches) {
     const reader = new FileReader();
@@ -24,7 +22,7 @@ uploadFile.addEventListener('change', () => {
       uploadPreview.src = reader.result;
       uploadPreview.width = Picture.WIDTH;
       uploadPreview.height = Picture.HEIGHT;
-    })
+    });
 
     reader.readAsDataURL(file);
   }

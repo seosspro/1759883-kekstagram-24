@@ -20,7 +20,7 @@ inputHashtags.addEventListener('input', () => {
 
   if (inputHashtagText.search(regExpHashtag) !== -1) {
     invalidMessage.push(
-      'Хеш-тег должен состоять из букв и чисел, не может состоять только из одной решётки, максимальная длина одного хэш-тега 20 символов'
+      'Хеш-тег должен состоять из букв и чисел, не может состоять только из одной решётки, максимальная длина одного хэш-тега 20 символов',
     );
   }
 
@@ -31,12 +31,12 @@ inputHashtags.addEventListener('input', () => {
   }
 
   const isRepeatHashTag = inputArray.some(
-    (tag, ix, arr) => arr.indexOf(tag, ix + 1) >= ix + 1
+    (tag, ix, arr) => arr.indexOf(tag, ix + 1) >= ix + 1,
   );
 
   if (isRepeatHashTag) {
     invalidMessage.push(
-      'Один и тот же хэш-тег не может быть использован дважды'
+      'Один и тот же хэш-тег не может быть использован дважды',
     );
   }
 
@@ -57,7 +57,7 @@ commentField.addEventListener('input', () => {
 
   if (commentFieldText.length > MAX_SYMBOLS) {
     commentField.setCustomValidity(
-      'Длинна комментария не может составлять больше 140 символов'
+      'Длинна комментария не может составлять больше 140 символов',
     );
     commentField.classList.add('error-message');
   } else {

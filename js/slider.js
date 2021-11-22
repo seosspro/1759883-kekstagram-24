@@ -54,11 +54,6 @@ const SliderSettings = {
   },
 };
 
-<<<<<<< HEAD
-=======
-// fixxx
-
->>>>>>> 35fe7abc879077b737d39bd673f35d38e4f15cde
 const formEditingPicture = document.querySelector('.img-upload__form');
 const sliderContainer = formEditingPicture.querySelector(
   '.effect-level__slider',

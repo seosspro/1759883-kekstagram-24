@@ -54,8 +54,6 @@ const SliderSettings = {
   },
 };
 
-// fix
-
 const formEditingPicture = document.querySelector('.img-upload__form');
 const sliderContainer = formEditingPicture.querySelector(
   '.effect-level__slider',

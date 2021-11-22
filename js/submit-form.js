@@ -29,7 +29,7 @@ const createSuccessMessage = () => {
   closeEditingPicture();
 };
 
-const onEscapeSuccessKeydown = (evt) => {
+function onEscapeSuccessKeydown(evt) {
   const popUp = main.querySelector('.success');
 
   evt.preventDefault();
@@ -40,15 +40,15 @@ const onEscapeSuccessKeydown = (evt) => {
 
   document.removeEventListener('keydown', onEscapeSuccessKeydown);
   document.removeEventListener('click', onCloseSuccessPopUp);
-};
+}
 
-const onCloseSuccessPopUp = () => {
+function onCloseSuccessPopUp() {
   const popUp = main.querySelector('.success');
   popUp.remove();
 
   document.removeEventListener('click', onCloseSuccessPopUp);
   document.removeEventListener('keydown', onEscapeSuccessKeydown);
-};
+}
 const createErrorMessage = () => {
   const error = errorMessage.cloneNode(true);
   document.addEventListener('keydown', onEscapeErrorKeydown);
@@ -57,7 +57,7 @@ const createErrorMessage = () => {
   closeEditingPicture();
 };
 
-const onEscapeErrorKeydown = (evt) => {
+function onEscapeErrorKeydown(evt) {
   const popUpError = main.querySelector('.error');
 
   evt.preventDefault();
@@ -68,14 +68,14 @@ const onEscapeErrorKeydown = (evt) => {
 
   document.removeEventListener('keydown', onEscapeErrorKeydown);
   document.removeEventListener('click', onCloseErrorPopUp);
-};
+}
 
-const onCloseErrorPopUp = () => {
+function onCloseErrorPopUp() {
   const popUpError = main.querySelector('.error');
   popUpError.remove();
 
   document.removeEventListener('click', onCloseErrorPopUp);
   document.removeEventListener('keydown', onEscapeErrorKeydown);
-};
+}
 
 addFormEditingPictureSubmit(createSuccessMessage, createErrorMessage);

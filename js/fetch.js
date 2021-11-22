@@ -1,6 +1,5 @@
 import { addingPictures } from './pictures.js';
 
-
 const CLASS_NAME = 'loading__error';
 const TEXT = 'Произошла ошибка! Попробуйте обновить страницу';
 const BUTTON_TEXT = 'Закрыть';
@@ -11,7 +10,6 @@ const pictureContainer = document.querySelector('.pictures');
 let dataPictures = [];
 
 const createErrorMessage = () => {
-
   const message = document.createElement('div');
   message.classList.add(CLASS_NAME);
   const textMessage = document.createElement('p');
@@ -25,7 +23,7 @@ const createErrorMessage = () => {
   const closeErrorPopUpHandler = () => {
     message.remove();
     document.removeEventListener('click', closeErrorPopUpHandler);
-  }
+  };
 
   button.addEventListener('click', closeErrorPopUpHandler);
 };
@@ -40,4 +38,4 @@ fetch(IMPORT_SERVER)
     createErrorMessage();
   });
 
-export { dataPictures }
+export { dataPictures };

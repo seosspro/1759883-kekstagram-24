@@ -1,4 +1,4 @@
-const SpecialStyle = {
+ SpecialStyle = {
   MARVIN: 'marvin',
   PHOBOS: 'phobos',
   NONE: 'none',
@@ -124,12 +124,14 @@ const onEffectsListChange = (evt) => {
     } else {
       let units = '';
       switch (evt.target.value) {
-        case SpecialStyle.MARVIN:
+        case SpecialStyle.MARVIN:{
           units = '%';
           break;
-        case SpecialStyle.PHOBOS:
+        }
+        case SpecialStyle.PHOBOS:{
           units = 'px';
           break;
+        }
       }
       sliderEffect.style.filter = `${sliderSetting.effect}(${sliderValue.value}${units})`;
     }

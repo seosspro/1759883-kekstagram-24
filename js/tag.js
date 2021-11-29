@@ -7,7 +7,7 @@ const inputHashtags = document.querySelector('.text__hashtags');
 const commentField = document.querySelector('.text__description');
 
 inputHashtags.addEventListener('input', () => {
-  const invalidMessage = [];
+  const invalidMessages = [];
 
   inputHashtags.setCustomValidity('');
 
@@ -19,7 +19,7 @@ inputHashtags.addEventListener('input', () => {
   }
 
   if (inputHashtagText.search(regExpHashtag) !== -1) {
-    invalidMessage.push(
+    invalidMessages.push(
       'Хеш-тег должен состоять из букв и чисел, не может состоять только из одной решётки, максимальная длина одного хэш-тега 20 символов',
     );
   }
@@ -35,17 +35,17 @@ inputHashtags.addEventListener('input', () => {
   );
 
   if (isRepeatHashTag) {
-    invalidMessage.push(
+    invalidMessages.push(
       'Один и тот же хэш-тег не может быть использован дважды',
     );
   }
 
   if (inputArray.length > MAX_HASHTAGS) {
-    invalidMessage.push('Нельзя указать больше пяти хэш-тегов');
+    invalidMessages.push('Нельзя указать больше пяти хэш-тегов');
   }
 
-  if (invalidMessage.length > 0) {
-    inputHashtags.setCustomValidity(invalidMessage.join('. \n'));
+  if (invalidMessages.length > 0) {
+    inputHashtags.setCustomValidity(invalidMessages.join('. \n'));
     inputHashtags.classList.add('error-message');
   } else {
     inputHashtags.classList.remove('error-message');
